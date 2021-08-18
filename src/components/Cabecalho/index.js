@@ -19,6 +19,11 @@ const Cabecalho  = props => {
             Registrar | Cadastrar
             </Link>
           </li>
+          <li>
+            <Link to="/login">
+            Login | Entrar
+            </Link>
+          </li>
         </ul>
       </div>
       </div>
