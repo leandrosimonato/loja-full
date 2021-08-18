@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './styles.scss';
-import { auth, handleUserProfile } from './../../firebase/Utilidades';
+//import { auth, handleUserProfile } from './../../firebase/Utilidades';
 import FormularioInput from './../Formularios/FormularioInput';
 import Botao from './../Formularios/Botao';
 import AuthWr from './../AuthWr';
 import { useHistory } from 'react-router-dom';
 import { SignUpUsuarioComeco} from './../../Redux/Usuario/usuario.acao';
 import { useDispatch, useSelector } from 'react-redux';
+//import { withRouter } from 'react-router-dom'
 
 const mapState = ({ user }) => ({
     currentUser: user.currentUser,
@@ -29,7 +30,7 @@ const Cadastrarup = props => {
             history.push('/');
         }
     
-    }, [currentUser]);
+    }, [currentUser, history]);
 
     useEffect(() => {
         if(Array.isArray(userErr) && userErr.length > 0) {

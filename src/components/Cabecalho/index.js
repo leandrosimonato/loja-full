@@ -31,7 +31,7 @@ const Cabecalho = props => {
                             <ul>
                             <li>
                                 <Link to="/painel">
-                                  Minha Conta
+                                    Minha Conta
                                 </Link>
                             </li>
                             <li>
@@ -46,13 +46,13 @@ const Cabecalho = props => {
                             <ul>
                             <li>
                                 <Link to="/registrar">
-                                  Registrar|Cadastrar
+                                    Registrar|Cadastrar
                                 </Link>
                             </li>
 
                             <li>
                                 <Link to="/login">
-                                  Login|Entrar
+                                    Login|Entrar
                                 </Link>
                             </li>
                         </ul>

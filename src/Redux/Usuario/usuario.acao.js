@@ -1,6 +1,5 @@
 import usuarioTipo from './usuario.tipo';
-
-
+import { auth, handleUserProfile, GoogleProvider} from './../../firebase/Utilidades'
 
 export const emailSignInComeco = userCredentials =>({
     type: usuarioTipo.EMAIL_SIGN_IN_COMECO,
@@ -56,6 +55,20 @@ export const googleSignInStart = () => ({
     
 });
 
+export const singInWithGoogle = () => async dispatch => {
+    try {
+        await auth.signInWithPopup(GoogleProvider)
+        .then(() => {
+            dispatch ({
+                type: usuarioTipo.CADASTRAR_IN_SUCESSO,
+                payload: true
+            })
+        })
+    }catch (err) {
+
+    }
+    
+}
 
 
 

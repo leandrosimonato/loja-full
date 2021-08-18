@@ -1,4 +1,5 @@
-import { Switch, Route, useRouteMatch , Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+//import { useRouteMatch , Redirect } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import Paginahome from './paginas/Paginahome';
 import './default.scss';
@@ -16,7 +17,7 @@ import AdminComAuth from './hocomp/AdminComAuth';
 import AdminToobar from './components/AdminitradorToobar';
 
 import AdminLayout from './layouts/AdminLayout';
-import DashBoardLayout from './layouts/DashboardLayout';
+//import DashBoardLayout from './layouts/DashboardLayout';
 
 
 
@@ -26,7 +27,7 @@ const  App = props => {
   useEffect(() => {
     dispatch(checarUsuarioSessao());
 
-  }, []);
+  }, [dispatch]);
 
 
   return (

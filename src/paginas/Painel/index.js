@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.scss';
 
 
-const Painel = props=>{
+const Painel = props => {
     return(
         <h1>
             Você está logado.

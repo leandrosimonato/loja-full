@@ -10,7 +10,7 @@ export const handleResetPasswordAPI = (email) => {
             resolve();
         })
         .catch(()=>{
-            const err = ['Este email nao esta cadastrado.'];
+            const err = ['Este e-mail não está cadastrado.'];
             reject(err);
         });
 

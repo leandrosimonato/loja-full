@@ -3,14 +3,14 @@ import './styles.scss';
 import Botao from './../Formularios/Botao';
 import FormularioInput from './../Formularios/FormularioInput';
 import AuthWr from './../AuthWr';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, withRouter, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {emailSignInComeco,  googleSignInStart} from './../../Redux/Usuario/usuario.acao';
 
 
 
 const mapState = ({ user }) => ({
-  currentUser: user.currentUser
+    currentUser: user.currentUser
 });
 
 
@@ -26,11 +26,11 @@ const Cadastrar = props =>{
     useEffect(() => {
         if(currentUser) {
             resetForm();
-          
+        
             history.push('/');
         }
 
-    }, [currentUser]);
+    }, [currentUser, history]);
 
     const resetForm =()=>{
         setEmail('');
@@ -46,21 +46,21 @@ const Cadastrar = props =>{
         dispatch(googleSignInStart());
     }
 
-      const configAuthWr ={
+    const configAuthWr ={
             headline: 'Login | Entrar'
         };
 
         return(
             <AuthWr{...configAuthWr}>
-              <div className="formwrap">
-                      <form onSubmit={handleSubmit}>
-                          <FormularioInput
+                <div className="formwrap">
+                        <form onSubmit={handleSubmit}>
+                            <FormularioInput
                                 type="email"
                                 name="email"
                                 value={email}
                                 placeholder="Seu Email"
                                 handleChange={e => setEmail(e.target.value)}  
-                          />
+                        />
 
                             <FormularioInput
                                 type="password"
@@ -68,18 +68,18 @@ const Cadastrar = props =>{
                                 value={password}
                                 placeholder="Sua Senha"
                                 handleChange={e => setPassword(e.target.value)}    
-                          />
+                            />
 
-                          <Botao type="submit">
-                              Login | Entrar
-                          </Botao>
+                            <Botao type="submit">
+                                Login | Entrar
+                            </Botao>
 
 
 
                             <div className="socialSignin">
                                 <div className="row">
                                     <Botao onClick = { handleGoogleSignIn }>
-                                      Com Google
+                                        Com Google
                                     </Botao>
                                 </div>
                             </div> 
@@ -87,14 +87,14 @@ const Cadastrar = props =>{
                             <div className="links">
                                 
                                     <Link to="/recoperar">
-                                      Recoperar Sua Senha
+                                        Recoperar Sua Senha
                                     </Link>
                             </div> 
-                      </form>
-                  </div>
+                        </form>
+                    </div>
             </AuthWr>
         );
     }
 
 
-export default Cadastrar;
+export default withRouter(Cadastrar);

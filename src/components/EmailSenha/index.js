@@ -28,7 +28,7 @@ const EmailSenha = props => {
             history.push('/login');
         }
 
-    }, [resetPasswordSuccess]);
+    }, [dispatch, history, resetPasswordSuccess]);
 
     useEffect(() => {
         if (Array.isArray(userErr) && userErr.length > 0) {
@@ -43,7 +43,7 @@ const EmailSenha = props => {
     }
 
     const configAuthWr = {
-        headline: 'Recoperar Senha Pelo Email'
+        headline: 'Recuperar Senha Pelo Email'
     };
         return (
             <AuthWr {...configAuthWr}>

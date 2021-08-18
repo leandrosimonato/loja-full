@@ -1,7 +1,7 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 import usuarioTipo from './usuario.tipo';
 import {cadastrarInSucesso, SairoutUsuarioSucesso,resetPasswordSuccess, userError} from './usuario.acao';
-import { auth, handleUserProfile,getCurrentUser, GoogleProvider} from './../../firebase/Utilidades';
+import { auth, handleUserProfile, getCurrentUser, GoogleProvider} from './../../firebase/Utilidades';
 import { handleResetPasswordAPI } from './usuario.ajuda';
 
 
@@ -75,7 +75,7 @@ export  function* signUpUser({ payload: {
 
 } }){
     if(password !== confirmPassword) {
-        const err = ['Sua senha e confirmacao de senha nao corresponden.'];
+        const err = ['Sua senha e confirmação de senha não corresponden.'];
         yield put(
             userError(err)
         );
@@ -99,9 +99,7 @@ export  function* onsignUpUserStart(){
 export  function* resetPassword({payload: { email }}) {
     try {
         yield call(handleResetPasswordAPI, email);
-        yield put(resetPasswordSuccess()
-        );
-
+        yield put(resetPasswordSuccess());
     } catch (err) {
         yield put (userError(err)
         )
