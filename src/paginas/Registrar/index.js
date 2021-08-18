@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
-import './styles.scss'
+import React, { Component } from 'react';
+import Cadastrarup from './../../components/Cadastrarup';
+
+import './styles.scss';
+
 
 class Registrar extends Component {
-  render() {
-    return (
-      <div>
-        <h1>pagina registrar</h1>
-      </div>
-    )
+  render(){
+    return  <Cadastrarup/>
   }
 }
-  
 
-export default Registrar
+export default Registrar;

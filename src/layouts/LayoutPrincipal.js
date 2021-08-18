@@ -5,7 +5,7 @@ import Rodape from './../components/Rodape';
 const LayoutPrincipal = props => {
     return(
         <div>
-            <Cabecalho />
+            <Cabecalho {...props} />
             <div className="main">
                 {props.children}
             </div>

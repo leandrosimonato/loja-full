@@ -5,7 +5,7 @@ import Rodape from './../components/Rodape';
 const LayoutPaginaHome = props => {
     return(
         <div className="fullheight">
-            <Cabecalho />
+            <Cabecalho {...props}/>
             {props.children}
             <Rodape/>
         </div>
