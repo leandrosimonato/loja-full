@@ -3,7 +3,7 @@ import './styles.scss';
 import Botao from './../Formularios/Botao';
 import FormularioInput from './../Formularios/FormularioInput';
 import AuthWr from './../AuthWr';
-import { Link, withRouter, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {emailSignInComeco,  googleSignInStart} from './../../Redux/Usuario/usuario.acao';
 
@@ -97,4 +97,4 @@ const Cadastrar = props =>{
     }
 
 
-export default withRouter(Cadastrar);
+export default Cadastrar;

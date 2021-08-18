@@ -32,7 +32,7 @@ const Admin = props => {
   };
   
 
- return (
+return (
   <div className="admin">
 
     <div className="callToActions">
@@ -89,7 +89,7 @@ const Admin = props => {
             handleChange={e => setProductPrice(e.target.value)}
           />
 
-         
+        
           <br />
 
           <Botao type="submit">
@@ -144,7 +144,7 @@ const Admin = props => {
     </div>
 
   </div>
- );
+);
 }
 
 export default Admin;

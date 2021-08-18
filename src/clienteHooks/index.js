@@ -1,5 +1,7 @@
-import useAuth from './usoAuth'
+import useAuth from './usoAuth';
+import useAdminAuth from './useAdminAuth';
 
 export {
-  useAuth
-}
+    useAuth,
+    useAdminAuth
+};
