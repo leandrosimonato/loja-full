@@ -15,7 +15,7 @@ import Login from './paginas/Login';
 import Admin from './paginas/Admin';
 import AdminComAuth from './hocomp/AdminComAuth';
 import AdminToobar from './components/AdminitradorToobar';
-
+import Search from './paginas/Pesquisar';
 import AdminLayout from './layouts/AdminLayout';
 //import DashBoardLayout from './layouts/DashboardLayout';
 
@@ -43,6 +43,12 @@ const  App = props => {
             <Route path="/registrar" render={() =>(
               <LayoutPrincipal>
                 <Registrar />
+              </LayoutPrincipal>
+            )}/>
+
+            <Route path="/pesquisar" render={() =>(
+              <LayoutPrincipal>
+                <Search />
               </LayoutPrincipal>
             )}/>
   

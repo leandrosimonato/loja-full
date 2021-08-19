@@ -4,12 +4,18 @@ import Modal from './../../components/Modal';
 import FormularioInput from './../../components/Formularios/FormularioInput';
 import FormSelect from './../../components/Formularios/FormSelect';
 import Botao from './../../components/Formularios/Botao';
+import { addProductStart, fetchProductsStart, deleteProductStart } from '../../Redux/Produtos/produtos.acao';
+
 import './styles.scss';
 
-
+const mapState = ({ productsData }) => ({
+  products: productsData.products,
+})
 
 const Admin = props => {
-  
+  const { products } = useSelector(mapState)
+  const dispatch = useDispatch()
+
   const [hideModal, setHideModal] = useState(true);
   const [productCategory, setProductCategory] = useState('mens');
   const [productName, setProductName] = useState('');
@@ -17,7 +23,12 @@ const Admin = props => {
   const [productPrice, setProductPrice] = useState(0);
   const [productDesc, setProductDesc] = useState('');
 
-  
+  useEffect(() => {
+    dispatch (
+      fetchProductStart()
+
+    )
+  },[])
 
   const toggleModal = () => setHideModal(!hideModal);
 
@@ -26,9 +37,27 @@ const Admin = props => {
     toggleModal
   };
 
+  const  resetarFormulario = () => {
+    setHideModal(true);
+    setProductCategory('mens');
+    setProductName('');
+    setProductThumbnail('');
+    setProductPrice(0);
+    setProductDesc('');
+  }
   
   const handleSubmit = e => {
     e.preventDefault();
+
+    dispatch(
+      addProductStart({
+        productCategory,
+        productName,
+        productThumbnail,
+        productPrice
+      })
+    );
+    resetarFormulario()
   };
   
 
@@ -39,7 +68,7 @@ return (
       <ul>
         <li>
           <Botao onClick={() => toggleModal()}>
-          Adicionar Um Novo Produto
+            + Produto
           </Botao>
         </li>
       </ul>
@@ -107,7 +136,7 @@ return (
           <tr>
             <th>
               <h1>
-                Cadastramento dos produtos
+                Produtos Cadastrados
               </h1>
             </th>
           </tr>
@@ -129,11 +158,32 @@ return (
             <td>
               <table border="0" cellPadding="10" cellSpacing="0">
                 <tbody>
-                  <tr>
-                    <td>
-                      
-                    </td>
-                  </tr>
+                  {products.mapState((product, index) => {
+                    const {
+                      productName,
+                      productThumbnail,
+                      productPrice,
+                      documentID
+                    } = product;
+                    return([
+                      <tr>
+                        <td>
+                          <img src={productThumbnail} />;
+                        </td>
+                        <td>
+                          {productName}
+                        </td>
+                        <td>
+                          R${productPrice}
+                        </td>
+                        <td>
+                          <Botao onClick={() => dispatch(deleteProductStart(documentID))}>
+                            Deletar
+                          </Botao>
+                        </td>
+                      </tr>
+                    ])
+                  })}
                 </tbody>
               </table>
             </td>

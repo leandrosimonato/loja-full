@@ -6,7 +6,7 @@ const Rodape = props=>{
     return(
         <footer className="footer">
                 <div className="wrap">
-                  &copy; Copyright 2021 | TODOS OS DIREITOS RESERVADOS | CRIADO POR SANGIORGIOVBA@GMAIL.COM
+                  &copy; Copyright 2021 | TODOS OS DIREITOS RESERVADOS | CRIADO POR LEANDROSIMONATO@GMAIL.COM
                 </div>
         </footer>
     );
